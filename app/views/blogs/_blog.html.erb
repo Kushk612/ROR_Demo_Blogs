@@ -1,0 +1,21 @@
+<div id="<%= dom_id blog %>">
+  <p>
+    <strong>Title:</strong>
+    <%= blog.title %>
+  </p>
+
+  <p>
+    <strong>Decsription:</strong>
+    <%= blog.decsription %>
+  </p>
+
+  <p>
+    <strong>Image:</strong>
+    <% if blog.image.attached?%> 
+      <%= image_tag blog.image, height: '250px' , width: '400px' if blog.image %>
+    <% else %>
+      No Image Uploaded
+    <% end %>
+  </p>
+
+</div>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Demo</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+    <br/>
+
+    <% if user_signed_in? %>
+      <h3>User Links</h3>
+      Logged in as <%= current_user.email %>
+      <%= link_to "User Edit Profile", edit_user_registration_path %><br />
+      <%= link_to "User Exit", destroy_user_session_path, :method => :delete %>
+    <% else %>
+      <h3>User Links</h3>
+      <%= link_to "User Sign up", new_user_registration_path %><br />
+      <%= link_to "User Login", new_user_session_path %><br />
+    <% end %>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @blog %>
+
+<div>
+  <%= link_to "Back to blogs", blogs_path %> | 
+  <%= link_to "Edit this blog", edit_blog_path(@blog) if current_user.user_type === "org_user" %>
+
+  <%= button_to "Destroy this blog", @blog, method: :delete if current_user.user_type === "org_user" %>
+</div>
